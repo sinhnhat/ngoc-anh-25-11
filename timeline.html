@@ -1,0 +1,228 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<link rel="icon" type="image/png" href="./img/CILKGax.png">
+        <!-- Tiêu đề của trang dòng thời gian -->
+		<title>Tập nói lời chúc</title>	    
+        <link type="text/css" rel="stylesheet" href="./css/default.css">
+        <link rel="stylesheet" href="./css/style.css">
+		<script type="text/javascript" src="./js/jquery.min.js"></script>
+		<script type="text/javascript" src="./js/jscex.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-parser.js"></script>
+		<script type="text/javascript" src="./js/jscex-jit.js"></script>
+		<script type="text/javascript" src="./js/jscex-builderbase.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-async.min.js"></script>
+		<script type="text/javascript" src="./js/jscex-async-powerpack.min.js"></script>
+		<script type="text/javascript" src="./js/functions.js" charset="utf-8"></script>
+		<script type="text/javascript" src="./js/love.js" charset="utf-8"></script>
+	    <style type="text/css"></style>
+        <script src="https://kit.fontawesome.com/60b60e6806.js" crossorigin="anonymous"></script>
+
+</head>
+    <body>
+        <div class="buttons">
+            <a href="index.html" class="btn btn-bir">Ngày đặc biệt 25/11</a>
+            <a href="timeline.html" class="btn btn-timeline">Lời muốn nói</a>
+            <a href="gallery.html" class="btn btn-gallery">Bộ sưu tầm</a>
+        </div>
+        <div id="main">
+             <div id="wrap">
+                <div id="text">
+			        <div id="code">
+					<!-- 4. CHỈNH SỬA LỜI CHÚC CỦA BẠN TẠI ĐÂY-->
+			      <font color="#7CFC00"><span class="say">Chúc mừng sinh nhật của 1 người con gái đáng yêu</span><br>
+						<span class="say">Vào ngày đặc biệt này, mình có vài điều muốn thổ lộ.</span><br>
+						<span class="say">Đầu tiên, có sinh nhật biết ơn theo cách vui vẻ nhất có thể!</span><br>
+						<span class="say">Thứ hai, hy vọng nụ cười của bà sẽ không bao giờ tắt vì nóng giận...</span><br>
+						<span class="say">Cuối cùng, mong rằng nhiều sự như ý sẽ đến với bà trong tuổi mới.</span><br>
+						<span class="say"> </span><br>
+						<span class="say">Chuyện kể về 16 năm trước, Thượng đế đã ban cho thế giới 1 cô thiếu nữ dễ thương.</span><br>
+						<span class="say">Không những thế cô gái còn là 1 người tốt bụng và chu đáo nhất đó.</span><br>
+						<span class="say">Nhưng tiếc thay vào 15 năm sau bà đã gặp và quen 1 người tồi tệ cùng lớp bà năm ấy.</span><br>
+						<span class="say">Người bà quen đã chọc tức bà, làm bà phát điên, cọc cằn trong khi bà là một con người dịu dàng.</span><br>
+						<span class="say">Nếu như có 1 điều ước, chắc mình sẽ quay về để ngăn thằng ấy có thể tiếp xúc với bà.</span><br>
+						<span class="say"> </span><br>
+                        <span class="say">Đôi lời cuối cùng ⊙﹏⊙∥ </span><br>
+						<span class="say">Chúc Ngọc Anh có những phút giây thật tuyệt vời với bạn bè và người thân trong ngày quan trọng này nhé (⊙o⊙).</span><br>
+						<span class="say">Chúc Ngọc Anh có 1 ngày đặc biệt ý nghĩa và khó quên nha!!</span><br>
+						<span class="say">"Bạn không bao giờ ngưng làm tôi ngạc nhiên. Mỗi ngày giống như một cuộc phiêu lưu mới với tôi khi bên cạnh bạn.</span><br>
+						<span class="say">Cảm ơn bạn đã ở đây. Tôi yêu bà, và sinh nhật vui vẻ."</span><br>
+						<span class="say"> </span><br>
+                        <span class="say"><span class="space"></span> -- Cảm ơn Ngọc Anh nhiều（*゜ー゜*) --</span>
+                        <i class="fas fa-long-arrow-alt-down"></i>
+			  </font></p>
+      </div>
+                </div>
+                <div id="clock-box">
+					<span class="STYLE1"> Tính từ ngày 25/11/2005 </span>  <!--Có thể thay đổi chổ này thành số tuổi của người bạn muốn chúc -->
+                  <div id="clock"></div>
+              </div>
+                <canvas id="canvas" width="1100" height="680"></canvas>
+            </div>
+            
+        </div>
+
+    <!-- Phần nhạc -->
+    <audio id="player" controls>
+        <source src="./music/Milion Days.mp3" type="audio/mp3" />
+    </audio>
+    <script>
+    (function(){
+        var canvas = $('#canvas');
+		
+        if (!canvas[0].getContext) {
+            $("#error").show();
+            return false;        }
+
+        var width = canvas.width();
+        var height = canvas.height();        
+        canvas.attr("width", width);
+        canvas.attr("height", height);
+        var opts = {
+            seed: {
+                x: width / 2 - 20,
+                color: "rgb(190, 26, 37)",
+                scale: 2
+            },
+            branch: [
+                [535, 680, 570, 250, 500, 200, 30, 100, [
+                    [540, 500, 455, 417, 340, 400, 13, 100, [
+                        [450, 435, 434, 430, 394, 395, 2, 40]
+                    ]],
+                    [550, 445, 600, 356, 680, 345, 12, 100, [
+                        [578, 400, 648, 409, 661, 426, 3, 80]
+                    ]],
+                    [539, 281, 537, 248, 534, 217, 3, 40],
+                    [546, 397, 413, 247, 328, 244, 9, 80, [
+                        [427, 286, 383, 253, 371, 205, 2, 40],
+                        [498, 345, 435, 315, 395, 330, 4, 60]
+                    ]],
+                    [546, 357, 608, 252, 678, 221, 6, 100, [
+                        [590, 293, 646, 277, 648, 271, 2, 80]
+                    ]]
+                ]] 
+            ],
+            bloom: {
+                num: 700,
+                width: 1080,
+                height: 650,
+            },
+            footer: {
+                width: 1200,
+                height: 5,
+                speed: 50,
+            }
+        }
+
+        var tree = new Tree(canvas[0], width, height, opts);
+        var seed = tree.seed;
+        var foot = tree.footer;
+        var hold = 1;
+
+        canvas.click(function(e) {
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            if (seed.hover(x, y)) {
+                hold = 0; 
+                canvas.unbind("click");
+                canvas.unbind("mousemove");
+                canvas.removeClass('hand');
+            }
+        }).mousemove(function(e){
+            var offset = canvas.offset(), x, y;
+            x = e.pageX - offset.left;
+            y = e.pageY - offset.top;
+            canvas.toggleClass('hand', seed.hover(x, y));
+        });
+
+        var seedAnimate = eval(Jscex.compile("async", function () {
+            seed.draw();
+            while (hold) {
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canScale()) {
+                seed.scale(0.95);
+                $await(Jscex.Async.sleep(10));
+            }
+            while (seed.canMove()) {
+                seed.move(0, 2);
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+        }));
+
+        var growAnimate = eval(Jscex.compile("async", function () {
+            do {
+    	        tree.grow();
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canGrow());
+        }));
+
+        var flowAnimate = eval(Jscex.compile("async", function () {
+            do {
+    	        tree.flower(2);
+                $await(Jscex.Async.sleep(10));
+            } while (tree.canFlower());
+        }));
+
+        var moveAnimate = eval(Jscex.compile("async", function () {
+            tree.snapshot("p1", 240, 0, 610, 680);
+            while (tree.move("p1", 500, 0)) {
+                foot.draw();
+                $await(Jscex.Async.sleep(10));
+            }
+            foot.draw();
+            tree.snapshot("p2", 500, 0, 610, 680);
+
+            canvas.parent().css("background", "url(" + tree.toDataURL('image/png') + ")");
+            canvas.css("background", "#ffe");
+            $await(Jscex.Async.sleep(300));
+            canvas.css("background", "none");
+        }));
+
+        var jumpAnimate = eval(Jscex.compile("async", function () {
+            var ctx = tree.ctx;
+            while (true) {
+                tree.ctx.clearRect(0, 0, width, height);
+                tree.jump();
+                foot.draw();
+                $await(Jscex.Async.sleep(25));
+            }
+        }));
+
+        var textAnimate = eval(Jscex.compile("async", function () {
+		    var together = new Date();
+		    var year = 2005, month = 11, day = 25;  // 5. thay đổi ngày tháng năm yêu nhau tại đây hoặc ngày sinh của người mà bạn muốn chúc
+		    together.setFullYear(year, month - 1, day); 			
+		    together.setHours(0);							
+		    together.setMinutes(0);				
+		    together.setSeconds(0);					
+		    together.setMilliseconds(0);			
+
+		    $("#code").show().typewriter();
+            $("#clock-box").fadeIn(500);
+            while (true) {
+                timeElapse(together);
+                $await(Jscex.Async.sleep(1000));
+            }
+        }));
+
+        var runAsync = eval(Jscex.compile("async", function () {
+            $await(seedAnimate());
+            $await(growAnimate());
+            $await(flowAnimate());
+            $await(moveAnimate());
+
+            textAnimate().start();
+
+            $await(jumpAnimate());
+        }));
+
+        runAsync().start();
+    })();
+    </script>
+</div>
+</body>
+</html>
